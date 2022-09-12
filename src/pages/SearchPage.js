@@ -11,12 +11,13 @@ export default function Searching() {
     const [response, setResponse] = useState("");
     const [searchTimer, setSearchTimer] = useState(null);
     const info = 'fillIngredients=true&addRecipeInformation=true&instructionsRequired=true'
+    const keyapi = 'your-api-key'
     
     const navigation = useNavigation();
 
     async function fetchData(text) {
         const res = await fetch(
-            `https://api.spoonacular.com/recipes/complexSearch?apiKey=3fe0281632b048d9a3783898520399a7&query=${text}&${info}&number=2`,
+            `https://api.spoonacular.com/recipes/complexSearch?apiKey=${keyapi}&query=${text}&${info}&number=2`,
         );
         res
             .json()
