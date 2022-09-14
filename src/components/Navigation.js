@@ -1,6 +1,7 @@
 import ShoppingList from '../pages/ShoppingList';
 import Searching from '../pages/SearchPage';
 import Home from '../pages/Home';
+import { RecipeScreenNavigator } from './NestedNavigation';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -37,7 +38,7 @@ export default function NavigationBar() {
 
                 })}>
                 <Tab.Screen name="Home" component={Home} />
-                <Tab.Screen name="Search Page" component={Searching} />
+                <Tab.Screen name="Search Page" component={RecipeScreenNavigator} />
                 <Tab.Screen name="Shopping List" component={ShoppingList} />
             </Tab.Navigator>
         </NavigationContainer>
