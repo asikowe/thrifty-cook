@@ -17,7 +17,7 @@ export default function ShoppingList({route}) {
     const getHeader = () => {
         return (
             <View>
-                <StatusBar />
+                <StatusBar style='dark' />
                 <Text style={styles.heading1}>SHOPPING LIST</Text>
             </View>
         )
@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         textAlign: 'center',
         backgroundColor: '#D3EBDD',
-        marginTop: 30,
     },
     checkboxContainer: {
         marginLeft: '20%',
