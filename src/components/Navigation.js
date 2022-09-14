@@ -16,7 +16,7 @@ export default function NavigationBar() {
                 screenOptions={({ route }) => ({
                     headerShown: false,
                     tabBarStyle: {
-                        backgroundColor: 'black',
+                        backgroundColor: '#353B3C',
                         paddingTop: 0,
                     },
                     tabBarIcon: ({ focused, color, size }) => {

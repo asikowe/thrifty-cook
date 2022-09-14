@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, ScrollView, ActivityIndicator, StatusBar } from "react-native";
+import { StyleSheet, Text, View, ScrollView, ActivityIndicator, StatusBar, SafeAreaView } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { SearchBar } from "@rneui/themed";
 import AppButton from '../components/Button';
+import CreateCard from "../components/ItemCard";
 
 
 export default function Searching() {
@@ -29,58 +30,44 @@ export default function Searching() {
     };
 
     return (
-        <View style={styles.container}>
-            <StatusBar style='dark'/>
-            <SearchBar
-                placeholder="Search for recipes"
-                onChangeText={(text) => {
-                    if (searchTimer) {
-                        clearTimeout(searchTimer);
-                    }
-                    setLoading(true);
-                    setInput(text);
-                    setSearchTimer(
-                        setTimeout(() => {
-                            fetchData(text);
-                        }, 3000),
-                    );
-                }}
-                value={input}
-                containerStyle={{ backgroundColor: '#fdf6da', borderBottomColor: '#fdf6da', borderTopColor: '#fdf6da' }}
-                inputContainerStyle={{ backgroundColor: '#fdf6da' }}
-                inputStyle={{color: 'black'}}
-                onSubmitEditing={()=>setInput('')}
-                clearIcon={false}
-                onFocus={()=>setResponse('')}
-            />
+        <SafeAreaView style={styles.container}>
+            <View>
+                <StatusBar style='dark'/>
+                <SearchBar
+                    placeholder="Search for recipes"
+                    onChangeText={(text) => {
+                        if (searchTimer) {
+                            clearTimeout(searchTimer);
+                        }
+                        setLoading(true);
+                        setInput(text);
+                        setSearchTimer(
+                            setTimeout(() => {
+                                fetchData(text);
+                            }, 3000),
+                        );
+                    }}
+                    value={input}
+                    containerStyle={{ backgroundColor: '#fdf6da', borderBottomColor: '#fdf6da', borderTopColor: '#fdf6da' }}
+                    inputContainerStyle={{ backgroundColor: '#fdf6da' }}
+                    inputStyle={{color: 'black'}}
+                    onSubmitEditing={()=>setInput('')}
+                    clearIcon={false}
+                    onFocus={()=>setResponse('')}
+                />
+            </View>
             {loading === true &&
                 <View style={styles.myloader}>
                     <ActivityIndicator size='large' color='#fdf6da' />
                 </View>}
             {response &&
                 <View style={styles.container3}>
-                    <ScrollView contentContainerStyle={styles.scrollcontainer}>
-                    <Text style={{ fontFamily: 'PermamentMarkerRegular', fontSize: 35 }}>{response?.results[0].title}</Text>
-                    <Text style={{ fontFamily: 'IndieFlowerRegular', fontSize: 20 }}>Ready in: {response?.results[0].readyInMinutes} minutes. Servings: {response?.results[0].servings}</Text>
-                    <Text style={{ fontFamily: 'IndieFlowerRegular', fontSize: 20 }}>COOKING INSTRUCTIONS:</Text>
-                    <View style={styles.container2}>
-                        {response?.results[0].analyzedInstructions[0].steps.map((item) => (
-                            <Text style={{ fontFamily: 'PoppinsRegular', fontSize: 14 }} key={item.step}>{item.number}. {item.step}</Text>
-                        ))}
-                    </View>
-                    <AppButton buttonText=" Show recipe " onPress={() => navigation.navigate("Recipe", { paramKey: response.results[0] })} />
-                    <Text style={{ fontFamily: 'PermamentMarkerRegular', fontSize: 35 }}>{response?.results[1].title}</Text>
-                    <Text style={{ fontFamily: 'IndieFlowerRegular', fontSize: 20 }}>Ready in: {response?.results[1].readyInMinutes} minutes. Servings: {response?.results[1].servings}</Text>
-                    <Text style={{ fontFamily: 'IndieFlowerRegular', fontSize: 20 }}>COOKING INSTRUCTIONS:</Text>
-                    <View style={styles.container2}>
-                        {response?.results[1].analyzedInstructions[0].steps.map((item) => (
-                            <Text style={{ fontFamily: 'PoppinsRegular', fontSize: 14 }} key={item.step}>{item.number}. {item.step}</Text>
-                        ))}
-                    </View>
-                    <AppButton buttonText=" Show recipe " onPress={() => navigation.navigate("Recipe", { paramKey: response.results[1] })} />
+                    <ScrollView>
+                    <CreateCard title={response?.results[0].title} cookingTime={response?.results[0].readyInMinutes} servings={response?.results[0].servings} onPress={() => navigation.navigate("Recipe", { paramKey: response.results[0] })}/>
+                    <CreateCard title={response?.results[1].title} cookingTime={response?.results[1].readyInMinutes} servings={response?.results[1].servings} onPress={() => navigation.navigate("Recipe", { paramKey: response.results[1] })}/>
                     </ScrollView>
                 </View>}
-        </View>
+        </SafeAreaView>
     );
 }
 
@@ -105,13 +92,6 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
     },
-    scrollcontainer: {
-        backgroundColor: "#D3EBDD",
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginLeft: 10,
-        marginRight: 10,
-    },
     myloader: {
         position: "absolute",
         top: 0,
@@ -121,5 +101,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: "100%",
         height: "100%",
+    },
+    safecontainer: {
+        backgroundColor: '#fdf6da',
     }
 });
