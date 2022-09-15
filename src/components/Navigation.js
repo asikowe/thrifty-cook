@@ -15,15 +15,14 @@ export default function NavigationBar() {
             <Tab.Navigator
                 screenOptions={({ route }) => ({
                     headerShown: false,
-                    tabBarActiveTintColor: '#FDF6DA',
-                    tabBarInactiveTintColor: 'gray',
+                    tabBarActiveTintColor: '#fdf6da',
+                    tabBarInactiveTintColor: '#3d3d3d',
                     tabBarStyle: {
-                        backgroundColor: 'black',
+                        backgroundColor: '#e58637',
                         paddingTop: 0,
                     },
                     tabBarIcon: ({ focused, color, size }) => {
                         let iconName;
-
                         if (route.name === 'Home') {
                             iconName = focused ? 'home' : 'home-outline';
                         } else if (route.name === 'Search Page') {
@@ -35,7 +34,6 @@ export default function NavigationBar() {
                         } else if (route.name === 'Settings') {
                             iconName = focused ? 'settings' : 'settings-outline';
                         }
-
                         return <Ionicons name={iconName} size={size} color={color} />;
                     },
                 })}>

@@ -6,7 +6,7 @@ export default StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: '#D3EBDD',
+        backgroundColor: '#3d3d3d',
         justifyContent: 'center',
         textAlign: 'center',
         paddingHorizontal: '5%',
@@ -27,57 +27,25 @@ export default StyleSheet.create({
 
     containerSearch: {
         flex: 1,
-        backgroundColor: '#D3EBDD',
-        justifyContent: 'center',
-        textAlign: 'center',
+        backgroundColor: '#3d3d3d',
         marginHorizontal: 0,
         marginVertical: 0
     },
 
     containerBorder: {
         flex: 1,
-        backgroundColor: '#D3EBDD',
+        backgroundColor: '#3d3d3d',
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
         borderWidth: 2,
         borderStyle: 'solid',
-        borderColor: '#FFB3BA'
-    },
-
-    /* TEXT STYLES */
-
-    heading: {
-        fontFamily: 'PermamentMarkerRegular',
-        fontSize: 30,
-        lineHeight: 60,
-        textAlign: 'center'
-    },
-
-    headingLogo: {
-        fontFamily: 'PermamentMarkerRegular',
-        fontSize: 35,
-        lineHeight: 200,
-        textAlign: 'center',
-    },
-
-    subtitle: {
-        fontFamily: 'IndieFlowerRegular',
-        fontSize: 20,
-        lineHeight: 30,
-        textAlign: 'center'
-    },
-
-    text: {
-        fontFamily: 'PoppinsRegular', 
-        fontSize: 14,
-        lineHeight: 20,
-        textAlign: 'center',
+        borderColor: '#315817'
     },
 
     /* BUTTON STYLES */
 
     appButtonContainer: {
-        backgroundColor: '#FDF6DA',
+        backgroundColor: '#ffb3ba',
         borderRadius: 20,
         minHeight: 45,
         elevation: 5,
@@ -97,7 +65,7 @@ export default StyleSheet.create({
         color: 'black'
     },
     smallRoundButtonContainer: {
-        backgroundColor: "#FDF6DA",
+        backgroundColor: '#baffc9',
         borderRadius: 20,
         elevation: 3,
         paddingVertical: 0,
@@ -114,7 +82,7 @@ export default StyleSheet.create({
     /* COMPONENT STYLES */
 
     checkbox: {
-        backgroundColor: '#FDF6DA',
+        backgroundColor: '#fef6db',
         borderRadius: 4,
         width: 20,
         height: 20,
@@ -136,14 +104,14 @@ export default StyleSheet.create({
     },
 
     searchContainer: {
-        backgroundColor: '#fdf6da', 
-        borderTopColor: '#fdf6da',
-        borderBottomColor: '#fdf6da', 
+        backgroundColor: '#fef6db', 
+        borderTopColor: '#fef6db',
+        borderBottomColor: '#fef6db', 
     },
 
     searchInputContainer: {
-        backgroundColor: '#fdf6da', 
-        borderColor: '#fdf6da',
+        backgroundColor: '#fef6db', 
+        borderColor: '#fef6db',
         paddingTop: 5,
     },
 
@@ -155,16 +123,37 @@ export default StyleSheet.create({
         paddingTop: 5,
     },
 
-    searchBar: {
-        backgroundColor: '#fdf6da', 
-        borderTopColor: '#fdf6da',
-        borderBottomColor: '#fdf6da', 
-        backgroundColor: '#fdf6da', 
-        borderColor: '#fdf6da',
+        /* TEXT STYLES */
+
+    heading: {
+        fontFamily: 'PermamentMarkerRegular',
+        fontSize: 30,
+        lineHeight: 60,
+        textAlign: 'center',
+        color: '#ffffba'
+    },
+
+    headingLogo: {
+        fontFamily: 'PermamentMarkerRegular',
+        fontSize: 35,
+        lineHeight: 200,
+        textAlign: 'center',
+        color: '#ffffba'
+    },
+
+    subtitle: {
         fontFamily: 'IndieFlowerRegular',
-        fontSize: 25,
-        color: 'black',
+        fontSize: 20,
         lineHeight: 30,
-        paddingTop: 5,
-    }
+        textAlign: 'center',
+        color: '#fdf6da'
+    },
+
+    text: {
+        fontFamily: 'PoppinsRegular', 
+        fontSize: 14,
+        lineHeight: 20,
+        textAlign: 'center',
+        color: '#fdf6da'
+    },
 });
