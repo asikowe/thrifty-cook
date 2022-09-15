@@ -25,6 +25,12 @@ export default StyleSheet.create({
         marginRight: 10,
     },
 
+    logo: {
+        height: 105,
+        width: 75,
+        resizeMode: 'scale'
+    },
+
     /* TEXT STYLES */
 
     heading: {
@@ -32,6 +38,13 @@ export default StyleSheet.create({
         fontSize: 30,
         lineHeight: 60,
         textAlign: 'center'
+    },
+
+    headingLogo: {
+        fontFamily: 'PermamentMarkerRegular',
+        fontSize: 35,
+        lineHeight: 200,
+        textAlign: 'center',
     },
 
     subtitle: {
