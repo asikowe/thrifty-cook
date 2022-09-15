@@ -30,6 +30,8 @@ export default StyleSheet.create({
         backgroundColor: '#D3EBDD',
         justifyContent: 'center',
         textAlign: 'center',
+        marginHorizontal: 0,
+        marginVertical: 0
     },
 
     containerBorder: {
@@ -40,21 +42,6 @@ export default StyleSheet.create({
         borderWidth: 2,
         borderStyle: 'solid',
         borderColor: '#FFB3BA'
-    },
-
-    logo: {
-        height: 105,
-        width: 75,
-        resizeMode: 'scale'
-    },
-
-    myloader: {
-        position: 'absolute',
-        zIndex: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-        height: '100%',
     },
 
     /* TEXT STYLES */
@@ -131,6 +118,53 @@ export default StyleSheet.create({
         borderRadius: 4,
         width: 20,
         height: 20,
-    }
+    },
 
+    logo: {
+        height: 105,
+        width: 75,
+        resizeMode: 'scale'
+    },
+
+    myloader: {
+        position: 'absolute',
+        zIndex: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
+    },
+
+    searchContainer: {
+        backgroundColor: '#fdf6da', 
+        borderTopColor: '#fdf6da',
+        borderBottomColor: '#fdf6da', 
+    },
+
+    searchInputContainer: {
+        backgroundColor: '#fdf6da', 
+        borderColor: '#fdf6da',
+        paddingTop: 5,
+    },
+
+    searchInput: {
+        fontFamily: 'IndieFlowerRegular',
+        fontSize: 25,
+        color: 'black',
+        lineHeight: 30,
+        paddingTop: 5,
+    },
+
+    searchBar: {
+        backgroundColor: '#fdf6da', 
+        borderTopColor: '#fdf6da',
+        borderBottomColor: '#fdf6da', 
+        backgroundColor: '#fdf6da', 
+        borderColor: '#fdf6da',
+        fontFamily: 'IndieFlowerRegular',
+        fontSize: 25,
+        color: 'black',
+        lineHeight: 30,
+        paddingTop: 5,
+    }
 });

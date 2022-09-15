@@ -31,7 +31,7 @@ export default function Searching() {
     return (
         <View style={Style.containerSearch}>
             <StatusBar style='dark'/>
-            <SearchBar placeholder="Search for recipes"
+            <SearchBar placeholder="Search for recipes" containerStyle={Style.searchContainer} inputContainerStyle={Style.searchInputContainer} inputStyle={Style.searchInput}
                 onChangeText={(text) => {
                     if (searchTimer) {
                         clearTimeout(searchTimer);
@@ -45,9 +45,6 @@ export default function Searching() {
                     );
                 }}
                 value={input}
-                containerStyle={{ backgroundColor: '#fdf6da', borderBottomColor: '#fdf6da', borderTopColor: '#fdf6da' }}
-                inputContainerStyle={{ backgroundColor: '#fdf6da' }}
-                inputStyle={{color: 'black'}}
                 onSubmitEditing={()=>setInput('')}
                 clearIcon={false}
                 onFocus={()=>setResponse('')}
