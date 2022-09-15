@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View, ScrollView, ActivityIndicator, StatusBar } from "react-native";
-import { useNavigation } from '@react-navigation/native';
-import { SearchBar } from "@rneui/themed";
+import React, { useState } from 'react';
+import Style from '../../assets/Style';
 import AppButton from '../components/Button';
-
+import { SearchBar } from "@rneui/themed";
+import { useNavigation } from '@react-navigation/native';
+import { Text, View, ScrollView, ActivityIndicator, StatusBar } from 'react-native';
 
 export default function Searching() {
     const [input, setInput] = useState("");
@@ -29,10 +29,9 @@ export default function Searching() {
     };
 
     return (
-        <View style={styles.container}>
+        <View style={Style.containerSearch}>
             <StatusBar style='dark'/>
-            <SearchBar
-                placeholder="Search for recipes"
+            <SearchBar placeholder="Search for recipes"
                 onChangeText={(text) => {
                     if (searchTimer) {
                         clearTimeout(searchTimer);
@@ -54,72 +53,32 @@ export default function Searching() {
                 onFocus={()=>setResponse('')}
             />
             {loading === true &&
-                <View style={styles.myloader}>
-                    <ActivityIndicator size='large' color='#fdf6da' />
+                <View style={Style.myloader}>
+                    <ActivityIndicator size='large' color='#FFB3BA' />
                 </View>}
             {response &&
-                <View style={styles.container3}>
-                    <ScrollView contentContainerStyle={styles.scrollcontainer}>
-                    <Text style={{ fontFamily: 'PermamentMarkerRegular', fontSize: 35 }}>{response?.results[0].title}</Text>
-                    <Text style={{ fontFamily: 'IndieFlowerRegular', fontSize: 20 }}>Ready in: {response?.results[0].readyInMinutes} minutes. Servings: {response?.results[0].servings}</Text>
-                    <Text style={{ fontFamily: 'IndieFlowerRegular', fontSize: 20 }}>COOKING INSTRUCTIONS:</Text>
-                    <View style={styles.container2}>
-                        {response?.results[0].analyzedInstructions[0].steps.map((item) => (
-                            <Text style={{ fontFamily: 'PoppinsRegular', fontSize: 14 }} key={item.step}>{item.number}. {item.step}</Text>
-                        ))}
-                    </View>
-                    <AppButton buttonText=" Show recipe " onPress={() => navigation.navigate("Recipe", { paramKey: response.results[0] })} />
-                    <Text style={{ fontFamily: 'PermamentMarkerRegular', fontSize: 35 }}>{response?.results[1].title}</Text>
-                    <Text style={{ fontFamily: 'IndieFlowerRegular', fontSize: 20 }}>Ready in: {response?.results[1].readyInMinutes} minutes. Servings: {response?.results[1].servings}</Text>
-                    <Text style={{ fontFamily: 'IndieFlowerRegular', fontSize: 20 }}>COOKING INSTRUCTIONS:</Text>
-                    <View style={styles.container2}>
-                        {response?.results[1].analyzedInstructions[0].steps.map((item) => (
-                            <Text style={{ fontFamily: 'PoppinsRegular', fontSize: 14 }} key={item.step}>{item.number}. {item.step}</Text>
-                        ))}
-                    </View>
-                    <AppButton buttonText=" Show recipe " onPress={() => navigation.navigate("Recipe", { paramKey: response.results[1] })} />
+                <View style={Style.container}>
+                    <ScrollView contentContainerStyle={Style.container2}>
+                        <Text style={Style.heading}>{response?.results[0].title}</Text>
+                        <Text style={Style.subtitle}>Ready in: {response?.results[0].readyInMinutes} minutes. Servings: {response?.results[0].servings}</Text>
+                        <Text style={Style.subtitle}>COOKING INSTRUCTIONS:</Text>
+                        <View style={Style.containerBorder}>
+                            {response?.results[0].analyzedInstructions[0].steps.map((item) => (
+                                <Text style={{ fontFamily: 'PoppinsRegular', fontSize: 14 }} key={item.step}>{item.number}. {item.step}</Text>
+                            ))}
+                        </View>
+                        <AppButton buttonText='Show recipe' onPress={() => navigation.navigate('Recipe', { paramKey: response.results[0] })} />
+                        <Text style={Style.heading}>{response?.results[1].title}</Text>
+                        <Text style={Style.subtitle}>Ready in: {response?.results[1].readyInMinutes} minutes. Servings: {response?.results[1].servings}</Text>
+                        <Text style={Style.subtitle}>COOKING INSTRUCTIONS:</Text>
+                        <View style={Style.containerBorder}>
+                            {response?.results[1].analyzedInstructions[0].steps.map((item) => (
+                                <Text style={{ fontFamily: 'PoppinsRegular', fontSize: 14 }} key={item.step}>{item.number}. {item.step}</Text>
+                            ))}
+                        </View>
+                        <AppButton buttonText='Show recipe' onPress={() => navigation.navigate('Recipe', { paramKey: response.results[1] })} />
                     </ScrollView>
                 </View>}
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#D3EBDD",
-    },
-    container2: {
-        flex: 1,
-        backgroundColor: '#D3EBDD',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderColor: '#FFB3BA',
-
-    },
-    container3: {
-        flex: 1,
-        backgroundColor: "#D3EBDD",
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginLeft: 10,
-        marginRight: 10,
-    },
-    scrollcontainer: {
-        backgroundColor: "#D3EBDD",
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginLeft: 10,
-        marginRight: 10,
-    },
-    myloader: {
-        position: "absolute",
-        top: 0,
-        left: 0,
-        zIndex: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: "100%",
-        height: "100%",
-    }
-});

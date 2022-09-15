@@ -10,7 +10,7 @@ export default StyleSheet.create({
         justifyContent: 'center',
         textAlign: 'center',
         paddingHorizontal: '5%',
-        paddingVertical: '10%',
+        paddingVertical: '5%',
     },
 
     checkboxContainer: {
@@ -25,10 +25,36 @@ export default StyleSheet.create({
         marginRight: 10,
     },
 
+    containerSearch: {
+        flex: 1,
+        backgroundColor: '#D3EBDD',
+        justifyContent: 'center',
+        textAlign: 'center',
+    },
+
+    containerBorder: {
+        flex: 1,
+        backgroundColor: '#D3EBDD',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+        borderWidth: 2,
+        borderStyle: 'solid',
+        borderColor: '#FFB3BA'
+    },
+
     logo: {
         height: 105,
         width: 75,
         resizeMode: 'scale'
+    },
+
+    myloader: {
+        position: 'absolute',
+        zIndex: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
     },
 
     /* TEXT STYLES */
@@ -64,7 +90,7 @@ export default StyleSheet.create({
     /* BUTTON STYLES */
 
     appButtonContainer: {
-        backgroundColor: "#FDF6DA",
+        backgroundColor: '#FDF6DA',
         borderRadius: 20,
         minHeight: 45,
         elevation: 5,
@@ -80,6 +106,7 @@ export default StyleSheet.create({
         lineHeight: 35,
         textAlign: 'center',
         textAlignVertical: 'center',
+        paddingHorizontal: 10,
         color: 'black'
     },
     smallRoundButtonContainer: {
