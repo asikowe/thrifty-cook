@@ -1,15 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, StatusBar } from 'react-native';
 import AppButton from '../components/Button';
 import MyCheckbox from '../components/CheckBox';
 import RoundButton from '../components/RoundButton';
-
+import Style from '../../assets/Style';
+import { Text, View, FlatList} from 'react-native';
 
 export default function ShoppingList({route}) {
     const myListEmpty = () => {
         return (
-            <View style={{ alignItems: "center" }}>
-                <Text style={styles.text1}>Pick some recipes to see your shopping list.</Text>
+            <View>
+                <Text style={Style.text}>Pick some recipes to see your shopping list.</Text>
             </View>
         );
     };
@@ -17,34 +17,29 @@ export default function ShoppingList({route}) {
     const getHeader = () => {
         return (
             <View>
-                <StatusBar style='dark' />
-                <Text style={styles.heading1}>SHOPPING LIST</Text>
+                <Text style={Style.heading}>SHOPPING LIST</Text>
             </View>
         )
-
     }
 
     const getFooter = () => {
         return (
             <View>
-                <Text style={styles.heading1}>ADD MORE? <RoundButton buttonText='+' /></Text>
-                <Text style={styles.text1}>
-                OR click the button below to clear this list once you're done shopping! </Text>
+                <Text style={Style.heading}>ADD MORE? <RoundButton buttonText='+' /></Text>
+                <Text style={Style.text}>OR click the button below to clear this list once you're done shopping!</Text>
                 <AppButton buttonText='Clear list' onPress={() => myListEmpty()} />
             </View>
-
         )
-
     }
 
     return (
-        <View style={styles.appContainer}>
-            <View style={styles.checkboxContainer}>
+        <View style={Style.container}>
+            <View style={Style.checkboxContainer}>
                 <FlatList
                     data={route.params?.paramKey}
                     ListEmptyComponent={myListEmpty}
                     renderItem={({ item }) =>
-                        <Text style={styles.text2}><MyCheckbox /> {item.nameClean}</Text>
+                        <Text style={Style.text}><MyCheckbox /> {item.nameClean}</Text>
                     }
                     keyExtractor={item => item.id}
                     contentContainerStyle={{
@@ -56,38 +51,5 @@ export default function ShoppingList({route}) {
                 />
             </View>
         </View>
-
     );
 }
-
-const styles = StyleSheet.create({
-    appContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        textAlign: 'center',
-        backgroundColor: '#D3EBDD',
-    },
-    checkboxContainer: {
-        marginLeft: '20%',
-        marginRight: '10%',
-        textAlign: 'left',
-    },
-    heading1: {
-        fontFamily: 'PermamentMarkerRegular',
-        fontSize: 30,
-        textAlign: 'center',
-        marginBottom: 5,
-    },
-    text1: {
-        fontFamily: 'IndieFlowerRegular',
-        fontSize: 20,
-        textAlign: 'center',
-        marginBottom: 10,
-        marginLeft: '15%',
-        marginRight: '15%',
-    },
-    text2: {
-        fontFamily: 'IndieFlowerRegular', 
-        fontSize: 20,
-    }
-});
