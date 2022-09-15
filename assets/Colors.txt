@@ -1,0 +1,24 @@
+// ----LIGHT theme candidates:
+
+// background1:         bricky orange   #ecc8b3      R 236   G 200   B 179
+// background2:         light orange    #ffdfba      R 255   G 223   B 186
+// light accent:        light beige     #fef6db      R 254   G 246   B 219
+// strong accent1:      baby pink       #ffb3ba      R 255   G 179   B 186
+// strong accent2:      lila            #d7baff      R 215   G 186   B 255      
+
+// ----GREEN theme candidates:
+
+// background1:         light mint      #d3ebdd      R 211   G 235   B 221
+// background2:         bright mint     #baffc9      R 186   G 255   B 201
+// light accent1:       light beige     #fdf6da      R 253   G 246   B 218
+// light accent2:       bright yellow   #ffffba      R 255   G 255   B 186
+// strong accent1:      carrot orange   #e58637      R 229   G 134   B 55
+// strong accent2:      carrot green    #315817      R 49    G 88    B 23
+
+// ----DARK theme colors:
+
+// background:          antracyt        #3d3d3d      R 61    G 61    B 61
+// light accent1:       light beige     #fdf6da      R 253   G 246   B 218
+// light accent2:       bright yellow   #ffffba      R 255   G 255   B 186
+// strong accent1:      baby pink       #ffb3ba      R 255   G 179   B 186
+// strong accent2:      dark green      #baffc9      R 186   G 255   B 201
