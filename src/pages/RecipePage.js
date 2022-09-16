@@ -6,7 +6,7 @@ export default function Recipe({ route }) {
     return (
         <View style={Style.container}>
         <StatusBar style='dark' />
-        <ScrollView contentContainerStyle={Style.container}>
+        <ScrollView contentContainerStyle={Style.container} showsHorizontalScrollIndicator={false}>
             <Text style={Style.heading}>{route.params?.paramKey.title}</Text>
             <Text style={Style.subtitle}>Ready in: {route.params?.paramKey.readyInMinutes} minutes. Servings: {route.params?.paramKey.servings}</Text>
             <Text style={Style.subtitle}>INGREDIENTS:</Text>
