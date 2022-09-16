@@ -1,6 +1,6 @@
 import Home from '../pages/Home';
 import { RecipeScreenNavigator } from './NestedNavigation';
-import RecipePage from '../pages/RecipePage';
+import FavouriteRecipes from '../pages/FavouriteRecipesPage';
 import ShoppingList from '../pages/ShoppingList';
 import Settings from '../pages/Settings';
 import { NavigationContainer } from '@react-navigation/native';
@@ -25,12 +25,12 @@ export default function NavigationBar() {
                         let iconName;
                         if (route.name === 'Home') {
                             iconName = focused ? 'home' : 'home-outline';
-                        } else if (route.name === 'Search Page') {
+                        } else if (route.name === 'Search') {
                             iconName = focused ? 'search' : 'search-outline';
-                        } else if (route.name === 'Recipe Page') {
-                            iconName = focused ? 'newspaper' : 'newspaper-outline';
-                        } else if (route.name === 'Shopping List') {
+                        } else if (route.name === 'List') {
                             iconName = focused ? 'cart' : 'cart-outline';
+                        } else if (route.name === 'Favourites') {
+                            iconName = focused ? 'newspaper' : 'newspaper-outline';
                         } else if (route.name === 'Settings') {
                             iconName = focused ? 'settings' : 'settings-outline';
                         }
@@ -38,9 +38,9 @@ export default function NavigationBar() {
                     },
                 })}>
                 <Tab.Screen name="Home" component={Home} />
-                <Tab.Screen name="Search Page" component={RecipeScreenNavigator} />
-                <Tab.Screen name="Recipe Page" component={RecipePage} />
-                <Tab.Screen name="Shopping List" component={ShoppingList} />
+                <Tab.Screen name="Search" component={RecipeScreenNavigator} />
+                <Tab.Screen name="Favourites" component={FavouriteRecipes} />
+                <Tab.Screen name="List" component={ShoppingList} />
                 <Tab.Screen name="Settings" component={Settings} />
             </Tab.Navigator>
         </NavigationContainer>
