@@ -33,6 +33,8 @@ export default function ShoppingList({route}) {
         )
     }
 
+    const todoList = useSelector(state => state.recipes);
+
     return (
         <View style={Style.container}>
             <View style={Style.checkboxContainer}>
