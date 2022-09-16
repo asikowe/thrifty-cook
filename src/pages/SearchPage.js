@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { StyleSheet, Text, View, ScrollView, ActivityIndicator, StatusBar, SafeAreaView } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+import { SearchBar } from "@rneui/themed";
+import AppButton from '../components/Button';
+import CreateCard from "../components/ItemCard";
 import Style from '../../assets/Style';
 import AppButton from '../components/Button';
-import { SearchBar } from "@rneui/themed";
-import { useNavigation } from '@react-navigation/native';
-import { Text, View, ScrollView, ActivityIndicator, StatusBar } from 'react-native';
+
 
 export default function Searching() {
     const [input, setInput] = useState("");
@@ -29,53 +32,65 @@ export default function Searching() {
     };
 
     return (
-        <View style={Style.containerSearch}>
-            <StatusBar style='dark'/>
-            <SearchBar placeholder="Search for recipes" containerStyle={Style.searchContainer} inputContainerStyle={Style.searchInputContainer} inputStyle={Style.searchInput}
-                onChangeText={(text) => {
-                    if (searchTimer) {
-                        clearTimeout(searchTimer);
-                    }
-                    setLoading(true);
-                    setInput(text);
-                    setSearchTimer(
-                        setTimeout(() => {
-                            fetchData(text);
-                        }, 3000),
-                    );
-                }}
-                value={input}
-                onSubmitEditing={()=>setInput('')}
-                clearIcon={false}
-                onFocus={()=>setResponse('')}
-            />
+
+        <SafeAreaView style={Style.containerSearch}>
+            <View>
+                <StatusBar style='dark'/>
+                <SearchBar
+                    placeholder="Search for recipes"
+                    onChangeText={(text) => {
+                        if (searchTimer) {
+                            clearTimeout(searchTimer);
+                        }
+                        setLoading(true);
+                        setInput(text);
+                        setSearchTimer(
+                            setTimeout(() => {
+                                fetchData(text);
+                            }, 3000),
+                        );
+                    }}
+                    value={input}
+                    containerStyle={Style.searchContainer}
+                    inputContainerStyle={Style.searchInputContainer}
+                    inputStyle={Style.searchInput}
+                    onSubmitEditing={()=>setInput('')}
+                    clearIcon={false}
+                    onFocus={()=>setResponse('')}
+                />
+            </View>
+
             {loading === true &&
                 <View style={Style.myloader}>
                     <ActivityIndicator size='large' color='#FFB3BA' />
                 </View>}
             {response &&
+
                 <View style={Style.container}>
-                    <ScrollView contentContainerStyle={Style.container2}>
-                        <Text style={Style.heading}>{response?.results[0].title}</Text>
-                        <Text style={Style.subtitle}>Ready in: {response?.results[0].readyInMinutes} minutes. Servings: {response?.results[0].servings}</Text>
-                        <Text style={Style.subtitle}>COOKING INSTRUCTIONS:</Text>
-                        <View style={Style.containerBorder}>
-                            {response?.results[0].analyzedInstructions[0].steps.map((item) => (
-                                <Text style={{ fontFamily: 'PoppinsRegular', fontSize: 14 }} key={item.step}>{item.number}. {item.step}</Text>
-                            ))}
-                        </View>
-                        <AppButton buttonText='Show recipe' onPress={() => navigation.navigate('Recipe', { paramKey: response.results[0] })} />
-                        <Text style={Style.heading}>{response?.results[1].title}</Text>
-                        <Text style={Style.subtitle}>Ready in: {response?.results[1].readyInMinutes} minutes. Servings: {response?.results[1].servings}</Text>
-                        <Text style={Style.subtitle}>COOKING INSTRUCTIONS:</Text>
-                        <View style={Style.containerBorder}>
-                            {response?.results[1].analyzedInstructions[0].steps.map((item) => (
-                                <Text style={{ fontFamily: 'PoppinsRegular', fontSize: 14 }} key={item.step}>{item.number}. {item.step}</Text>
-                            ))}
-                        </View>
-                        <AppButton buttonText='Show recipe' onPress={() => navigation.navigate('Recipe', { paramKey: response.results[1] })} />
+                    <ScrollView>
+                    <CreateCard title={response?.results[0].title} cookingTime={response?.results[0].readyInMinutes} servings={response?.results[0].servings} onPress={() => navigation.navigate("Recipe", { paramKey: response.results[0] })}/>
+                    <CreateCard title={response?.results[1].title} cookingTime={response?.results[1].readyInMinutes} servings={response?.results[1].servings} onPress={() => navigation.navigate("Recipe", { paramKey: response.results[1] })}/>
                     </ScrollView>
                 </View>}
-        </View>
+        </SafeAreaView>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "#D3EBDD",
+    },
+    myloader: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        zIndex: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: "100%",
+        height: "100%",
+    }
+});
+
+
