@@ -9,7 +9,7 @@ const CreateCard = (props) => {
     return(
         <Card style={styles.container}>
             <Card.Content style={{alignItems: 'center'}}>
-                <Title style={styles.title}>{props.title} <FavouritesButton onPress2={props.onPress2}</Title>
+                <Title style={styles.title}>{props.title} <FavouritesButton onPress2={props.onPress2} /></Title>
                 <Text style={styles.text}>Cooking Time: {props.cookingTime} min</Text>
                 <Text style={styles.text}>Serves: {props.servings}</Text>
             </Card.Content>
