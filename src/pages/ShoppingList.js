@@ -4,6 +4,7 @@ import MyCheckbox from '../components/CheckBox';
 import RoundButton from '../components/RoundButton';
 import Style from '../../assets/Style';
 import { Text, View, FlatList} from 'react-native';
+import { useSelector } from 'react-redux';
 
 export default function ShoppingList({route}) {
     const myListEmpty = () => {
@@ -36,11 +37,13 @@ export default function ShoppingList({route}) {
         <View style={Style.container}>
             <View style={Style.checkboxContainer}>
                 <FlatList
-                    data={route.params?.paramKey}
+                    data={todoList}
                     ListEmptyComponent={myListEmpty}
                     renderItem={({ item }) =>
-                        <Text style={Style.text}><MyCheckbox /> {item.nameClean}</Text>
-                    }
+                    <View>
+                    {item.recipe.extendedIngredients.map((v, i) => (
+                        <Text style={Style.text}><MyCheckbox /> {v.nameClean}</Text>))}
+                    </View>}
                     keyExtractor={item => item.id}
                     contentContainerStyle={{
                         flexGrow: 1,
