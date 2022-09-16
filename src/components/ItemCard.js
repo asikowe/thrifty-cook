@@ -2,17 +2,18 @@ import React from "react";
 import { StyleSheet, Text } from "react-native";
 import { Card, Title } from 'react-native-paper';
 import CardButton from "./ButtonItemCard";
+import FavouritesButton from "./ButtonFavourites";
 
 const CreateCard = (props) => {
     
     return(
         <Card style={styles.container}>
-            <Card.Content>
-                <Title style={styles.title}>{props.title}</Title>
+            <Card.Content style={{alignItems: 'center'}}>
+                <Title style={styles.title}>{props.title} <FavouritesButton onPress2={props.onPress2}</Title>
                 <Text style={styles.text}>Cooking Time: {props.cookingTime} min</Text>
                 <Text style={styles.text}>Serves: {props.servings}</Text>
             </Card.Content>
-            <CardButton buttonText='SEE RECIPE' onPress={props.onPress}/>
+            <CardButton buttonText='SEE RECIPE' onPress={props.onPress1}/>
         </Card>
     )
 }
