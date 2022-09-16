@@ -4,6 +4,8 @@ import { useNavigation } from '@react-navigation/native';
 import { SearchBar } from "@rneui/themed";
 import CreateCard from "../components/ItemCard";
 import Style from '../../assets/Style';
+import { useDispatch } from 'react-redux';
+import { addRecipe } from '../redux/action';
 
 
 export default function Searching() {
@@ -28,6 +30,12 @@ export default function Searching() {
             })
             .catch((err) => console.log(err));
     };
+
+    const dispatch = useDispatch();
+
+    const handleAddRecipe = (recipe) => {
+        dispatch(addRecipe(recipe))
+    }
 
     return (
 
@@ -62,33 +70,20 @@ export default function Searching() {
                 <View style={Style.myloader}>
                     <ActivityIndicator size='large' color='#FFB3BA' />
                 </View>}
-            {response &&
-
+            {!! response &&
                 <View style={Style.container}>
-                    <ScrollView>
-                    <CreateCard title={response?.results[0].title} cookingTime={response?.results[0].readyInMinutes} servings={response?.results[0].servings} onPress={() => navigation.navigate("Recipe", { paramKey: response.results[0] })}/>
-                    <CreateCard title={response?.results[1].title} cookingTime={response?.results[1].readyInMinutes} servings={response?.results[1].servings} onPress={() => navigation.navigate("Recipe", { paramKey: response.results[1] })}/>
+                        <ScrollView contentContainerStyle={Style.container2} showsHorizontalScrollIndicator={false}>
+                        {response?.results.map((result) => (
+                            <CreateCard title={result.title} 
+                                cookingTime={result.readyInMinutes} 
+                                servings={result.servings} 
+                                key={result.id}
+                                onPress1={() => navigation.navigate("Recipe", { paramKey: result })} 
+                                onPress2={() => handleAddRecipe(result)}/>
+                        ))}
                     </ScrollView>
                 </View>}
         </SafeAreaView>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#D3EBDD",
-    },
-    myloader: {
-        position: "absolute",
-        top: 0,
-        left: 0,
-        zIndex: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: "100%",
-        height: "100%",
-    }
-});
-
 
