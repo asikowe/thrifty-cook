@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, ScrollView, ActivityIndicator, StatusBar, SafeAreaView } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { SearchBar } from "@rneui/themed";
-import AppButton from '../components/Button';
 import CreateCard from "../components/ItemCard";
 import Style from '../../assets/Style';
-import AppButton from '../components/Button';
 
 
 export default function Searching() {
