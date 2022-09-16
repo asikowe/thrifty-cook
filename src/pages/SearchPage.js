@@ -4,6 +4,8 @@ import { useNavigation } from '@react-navigation/native';
 import { SearchBar } from "@rneui/themed";
 import AppButton from '../components/Button';
 import CreateCard from "../components/ItemCard";
+import Style from '../../assets/Style';
+import AppButton from '../components/Button';
 
 
 export default function Searching() {
@@ -12,7 +14,7 @@ export default function Searching() {
     const [searchTimer, setSearchTimer] = useState(null);
     const [loading, setLoading] = useState(false)
     const info = 'fillIngredients=true&addRecipeInformation=true&instructionsRequired=true'
-    const API_KEY = 'your-api-key'
+    const API_KEY = '2299a9ad31ef43548dd863d4faf15262'
     
     const navigation = useNavigation();
 
@@ -30,7 +32,8 @@ export default function Searching() {
     };
 
     return (
-        <SafeAreaView style={styles.container}>
+
+        <SafeAreaView style={Style.containerSearch}>
             <View>
                 <StatusBar style='dark'/>
                 <SearchBar
@@ -48,20 +51,22 @@ export default function Searching() {
                         );
                     }}
                     value={input}
-                    containerStyle={{ backgroundColor: '#fdf6da', borderBottomColor: '#fdf6da', borderTopColor: '#fdf6da' }}
-                    inputContainerStyle={{ backgroundColor: '#fdf6da' }}
-                    inputStyle={{color: 'black'}}
+                    containerStyle={Style.searchContainer}
+                    inputContainerStyle={Style.searchInputContainer}
+                    inputStyle={Style.searchInput}
                     onSubmitEditing={()=>setInput('')}
                     clearIcon={false}
                     onFocus={()=>setResponse('')}
                 />
             </View>
+
             {loading === true &&
-                <View style={styles.myloader}>
-                    <ActivityIndicator size='large' color='#fdf6da' />
+                <View style={Style.myloader}>
+                    <ActivityIndicator size='large' color='#FFB3BA' />
                 </View>}
             {response &&
-                <View style={styles.container3}>
+
+                <View style={Style.container}>
                     <ScrollView>
                     <CreateCard title={response?.results[0].title} cookingTime={response?.results[0].readyInMinutes} servings={response?.results[0].servings} onPress={() => navigation.navigate("Recipe", { paramKey: response.results[0] })}/>
                     <CreateCard title={response?.results[1].title} cookingTime={response?.results[1].readyInMinutes} servings={response?.results[1].servings} onPress={() => navigation.navigate("Recipe", { paramKey: response.results[1] })}/>
@@ -76,22 +81,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#D3EBDD",
     },
-    container2: {
-        flex: 1,
-        backgroundColor: '#D3EBDD',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderColor: '#FFB3BA',
-
-    },
-    container3: {
-        flex: 1,
-        backgroundColor: "#D3EBDD",
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginLeft: 10,
-        marginRight: 10,
-    },
     myloader: {
         position: "absolute",
         top: 0,
@@ -101,8 +90,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: "100%",
         height: "100%",
-    },
-    safecontainer: {
-        backgroundColor: '#fdf6da',
     }
 });
+
+
