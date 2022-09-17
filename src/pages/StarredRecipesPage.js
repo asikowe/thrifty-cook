@@ -13,8 +13,7 @@ export default function StarredRecipes() {
 
     return (
         <View style={Style.container}>
-            <ScrollView contentContainerStyle={Style.container2}
-                        showsHorizontalScrollIndicator={false}>
+            <ScrollView contentContainerStyle={Style.containerRecipeCards} showsHorizontalScrollIndicator={false}>
                 <Text style={Style.heading}> Your favourite recipes:</Text>
                 {todoList?.map((result) => (
                 <RecipeCard title={result.recipe.title}
@@ -23,6 +22,6 @@ export default function StarredRecipes() {
                     key={result.recipe.id} 
                     />))}
             </ScrollView>
-            </View>
+        </View>
     );
 }

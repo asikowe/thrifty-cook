@@ -13,18 +13,6 @@ export default StyleSheet.create({
         paddingVertical: '5%',
     },
 
-    checkboxContainer: {
-        maxHeight: '95%',
-        alignItems: 'center',
-    },
-
-    container2: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginLeft: 10,
-        marginRight: 10,
-    },
-
     containerSearch: {
         flex: 1,
         backgroundColor: '#3d3d3d',
@@ -32,17 +20,42 @@ export default StyleSheet.create({
         marginVertical: 0
     },
 
-    containerBorder: {
-        flex: 1,
+    containerRecipeCards: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    containerRecipeCard: {
+        backgroundColor: '#fdf6da',
+        borderColor: '#ffffba',
+        borderWidth: 3,
+        borderStyle: 'solid',
+        height: 'auto',
+        width: '75%',
+        borderRadius: 6,
+        marginHorizontal: '3%',
+        marginVertical: '3%',
+    },
+
+    containerRecipeCardButtons: {
+        flexDirection:'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: '3%',
+        marginBottom: '5%'
+    },
+
+    containerInstructions: {
         backgroundColor: '#3d3d3d',
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
-        borderWidth: 2,
-        borderStyle: 'solid',
-        borderColor: '#315817'
+        paddingHorizontal: '3%',
+        paddingVertical: '5%',
     },
 
+
     /* BUTTON STYLES */
+
 
     appButtonContainer: {
         backgroundColor: '#ffb3ba',
@@ -51,10 +64,10 @@ export default StyleSheet.create({
         elevation: 5,
         paddingVertical: 3,
         paddingHorizontal: 3,
-        marginTop: '5%',
-        marginBottom: '5%',
+        marginVertical: '5%',
         marginHorizontal: '20%'
     },
+
     appButtonText: {
         fontFamily: 'PermamentMarkerRegular',
         fontSize: 25,
@@ -64,28 +77,55 @@ export default StyleSheet.create({
         paddingHorizontal: 10,
         color: 'black'
     },
+
     smallRoundButtonContainer: {
         backgroundColor: '#baffc9',
-        borderRadius: 20,
+        borderRadius: 18,
         elevation: 3,
         paddingVertical: 0,
         paddingHorizontal: 9,
     },
+
     smallRoundButtonText: {
         fontFamily: 'PoppinsRegular',
         fontSize: 20,
-        fontWeight: 'bold',
+        textAlign: 'center',
+        color: 'black',
+        paddingVertical: 0,
+        paddingHorizontal: 0,
+        marginBottom: -3,
+        textShadowColor: 'black',
+        textShadowRadius: 2,
+    },
+
+    recipeCardButton: {
+        backgroundColor: '#ffb3ba',
+        borderRadius: 5,
+        elevation: 3,
+        width: '35%',
+        marginRight: '5%',
+        marginLeft: '5%',
+    },
+
+    recipeCardButtonText: {
+        fontFamily: 'PermamentMarkerRegular',
+        fontSize: 14,
         textAlign: 'center',
         color: 'black'
     },
 
+
     /* COMPONENT STYLES */
+
 
     checkbox: {
         backgroundColor: '#fef6db',
-        borderRadius: 4,
-        width: 20,
-        height: 20,
+        borderColor: '#ffb3ba',
+        borderWidth: 2,
+        borderStyle: 'solid',
+        borderRadius: 3,
+        width: 18,
+        height: 18,
     },
 
     logo: {
@@ -123,7 +163,9 @@ export default StyleSheet.create({
         paddingTop: 5,
     },
 
+
         /* TEXT STYLES */
+
 
     heading: {
         fontFamily: 'PermamentMarkerRegular',
@@ -138,7 +180,9 @@ export default StyleSheet.create({
         fontSize: 35,
         lineHeight: 200,
         textAlign: 'center',
-        color: '#ffffba'
+        color: '#ffffba',
+        textShadowColor: '#ffffba',
+        textShadowRadius: 3
     },
 
     subtitle: {
@@ -146,7 +190,27 @@ export default StyleSheet.create({
         fontSize: 20,
         lineHeight: 30,
         textAlign: 'center',
-        color: '#fdf6da'
+        color: '#fdf6da',
+        textShadowColor: '#fdf6da',
+        textShadowRadius: 2
+    },
+
+    recipeCardTitle: {
+        fontFamily: 'PermamentMarkerRegular',
+        fontSize: 18,
+        lineHeight: 30,
+        textAlign: 'center',
+        color: '#3d3d3d',
+    },
+
+    recipeCardText: {
+        fontFamily: 'IndieFlowerRegular', 
+        fontSize: 14,
+        lineHeight: 18,
+        textAlign: 'center',
+        color: '#3d3d3d',
+        textShadowColor: '#3d3d3d',
+        textShadowRadius: 1
     },
 
     text: {
@@ -156,4 +220,21 @@ export default StyleSheet.create({
         textAlign: 'center',
         color: '#fdf6da'
     },
+
+    textShoppingList: {
+        fontFamily: 'PoppinsRegular', 
+        fontSize: 14,
+        lineHeight: 20,
+        textAlign: 'center',
+        color: '#fdf6da',
+        paddingBottom: 6
+    },
+
+    textInstructions: {
+        fontFamily: 'PoppinsRegular', 
+        fontSize: 14,
+        lineHeight: 20,
+        color: '#fdf6da'
+    },
+
 });

@@ -3,7 +3,7 @@ import Checkbox from '../components/CheckBox';
 import AppButton from '../components/AppButton';
 import RoundButton from '../components/RoundButton';
 import Style from '../../assets/Style';
-import { Text, View, FlatList} from 'react-native';
+import { Text, View, FlatList } from 'react-native';
 import { useSelector } from 'react-redux';
 
 export default function ShoppingList({route}) {
@@ -38,24 +38,22 @@ export default function ShoppingList({route}) {
 
     return (
         <View style={Style.container}>
-            <View style={Style.checkboxContainer}>
-                <FlatList
-                    data={todoList}
-                    ListEmptyComponent={myListEmpty}
-                    renderItem={({ item }) =>
-                    <View>
+            <FlatList
+                data={todoList}
+                ListEmptyComponent={myListEmpty}
+                renderItem={({ item }) =>
+                <View style={Style.containerInstructions}>
                     {item.recipe.extendedIngredients.map((v, i) => (
-                        <Text style={Style.text}><Checkbox /> {v.nameClean}</Text>))}
-                    </View>}
-                    keyExtractor={item => item.id}
-                    contentContainerStyle={{
-                        flexGrow: 1,
-                    }}
-                    ListHeaderComponent={getHeader}
-                    ListFooterComponent={getFooter}
-                    showsVerticalScrollIndicator={false}
-                />
-            </View>
+                        <Text style={Style.textShoppingList}><Checkbox /> {v.nameClean}</Text>))}
+                </View>}
+                keyExtractor={item => item.id}
+                contentContainerStyle={{
+                    flexGrow: 1,
+                }}
+                ListHeaderComponent={getHeader}
+                ListFooterComponent={getFooter}
+                showsVerticalScrollIndicator={false}
+            />
         </View>
     );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import RecipeCardButton from './RecipeCardButton';
 import StarredButton from './StarredButton';
 import Style from '../../assets/Style';
-import { Text } from 'react-native';
+import { View, Text } from 'react-native';
 import { Card, Title } from 'react-native-paper';
 
 const RecipeCard = (props) => {
@@ -14,9 +14,9 @@ const RecipeCard = (props) => {
                 <Text style={Style.recipeCardText}>Cooking Time: {props.cookingTime} min</Text>
                 <Text style={Style.recipeCardText}>Serves: {props.servings}</Text>
             </Card.Content>
-            <View style={{flex:1, flexDirection:'row', alignItems:'flex-end',}}>
-            <RecipeCardButton buttonText='SEE RECIPE' onPress={props.onPress1}/>
-            <RecipeCardButton buttonText='ADD TO LIST' onPress={props.onPress2}/>
+            <View style={Style.containerRecipeCardButtons}>
+                <RecipeCardButton style={Style.recipeCardButton} buttonText='SEE RECIPE' onPress={props.onPress1}/>
+                <RecipeCardButton style={Style.recipeCardButton} buttonText='ADD TO LIST' onPress={props.onPress2}/>
             </View>
         </Card>
     )
