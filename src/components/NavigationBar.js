@@ -1,8 +1,8 @@
-import Home from '../pages/Home';
+import Home from '../pages/HomePage';
 import RecipeScreenNavigator from './RecipeScreenNavigator';
-import StarredRecipes from '../pages/StarredRecipes';
-import ShoppingList from '../pages/ShoppingList';
-import Options from '../pages/Options';
+import StarredRecipes from '../pages/StarredRecipesPage';
+import ShoppingList from '../pages/ShoppingListPage';
+import Options from '../pages/OptionsPage';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
