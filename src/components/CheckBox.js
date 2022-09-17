@@ -1,9 +1,9 @@
+import Style from '../../assets/Style';
 import { useState } from 'react';
-import { Pressable, StyleSheet } from 'react-native';
+import { Pressable } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-
-export default function MyCheckbox() {
+export default function Checkbox() {
 
     const [checked, onChange] = useState(false);
 
@@ -12,25 +12,9 @@ export default function MyCheckbox() {
     }
 
     return (
-        <Pressable
-            style={[styles.checkboxBase, checked && styles.checkboxChecked]}
+        <Pressable style={[Style.checkbox, checked && Style.checkbox]}
             onPress={onCheckmarkPress}>
-            {checked && <Ionicons name="checkmark-outline" size={20} color="black" />}
+            {checked && <Ionicons name='chevron-down-outline' size={18} color={'#3d3d3d'} />}
         </Pressable>
     );
 }
-
-const styles = StyleSheet.create({
-    checkboxBase: {
-        width: 20,
-        height: 20,
-        backgroundColor: '#FDF6DA',
-        borderRadius: 4,
-    },
-    checkboxChecked: {
-        width: 20,
-        height: 20,
-        backgroundColor: '#FDF6DA',
-        borderRadius: 4,
-    },
-});

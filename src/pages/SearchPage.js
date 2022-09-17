@@ -1,20 +1,21 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View, ScrollView, ActivityIndicator, StatusBar, SafeAreaView } from "react-native";
-import { useNavigation } from '@react-navigation/native';
-import { SearchBar } from "@rneui/themed";
-import CreateCard from "../components/ItemCard";
+import React, { useState } from 'react';
+import RecipeCard from '../components/RecipeCard';
 import Style from '../../assets/Style';
-import { useDispatch, useSelector } from 'react-redux';
 import { addRecipe } from '../redux/action';
+import { SearchBar } from '@rneui/themed';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
+import { View, ScrollView, ActivityIndicator, SafeAreaView, StatusBar } from 'react-native';
 
 
 export default function Searching() {
+
     const [input, setInput] = useState("");
     const [response, setResponse] = useState("");
     const [searchTimer, setSearchTimer] = useState(null);
     const [loading, setLoading] = useState(false)
     const info = 'fillIngredients=true&addRecipeInformation=true&instructionsRequired=true'
-    const API_KEY = 'your-api-key'
+    const API_KEY = '2299a9ad31ef43548dd863d4faf15262'
     
     const navigation = useNavigation();
 
@@ -76,10 +77,10 @@ export default function Searching() {
                     <ActivityIndicator size='large' color='#FFB3BA' />
                 </View>}
             {!! response &&
-                <View style={Style.container}>
-                        <ScrollView contentContainerStyle={Style.container2} showsHorizontalScrollIndicator={false}>
+                <View>
+                        <ScrollView contentContainerStyle={Style.containerRecipeCards} showsHorizontalScrollIndicator={false}>
                         {response?.results.map((result) => (
-                            <CreateCard title={result.title} 
+                            <RecipeCard title={result.title} 
                                 cookingTime={result.readyInMinutes} 
                                 servings={result.servings} 
                                 key={result.id}

@@ -21,4 +21,4 @@
 // light accent1:       light beige     #fdf6da      R 253   G 246   B 218
 // light accent2:       bright yellow   #ffffba      R 255   G 255   B 186
 // strong accent1:      baby pink       #ffb3ba      R 255   G 179   B 186
-// strong accent2:      dark green      #baffc9      R 186   G 255   B 201
+// strong accent2:      dark green      #315817      R 186   G 255   B 201
