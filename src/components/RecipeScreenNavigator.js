@@ -1,6 +1,6 @@
 import React from 'react';
-import Recipe from '../pages/RecipePage';
-import Searching from '../pages/SearchPage';
+import Recipe from '../pages/Recipe';
+import Searching from '../pages/Search';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator(); 
