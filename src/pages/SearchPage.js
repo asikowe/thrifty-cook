@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { SearchBar } from "@rneui/themed";
 import CreateCard from "../components/ItemCard";
 import Style from '../../assets/Style';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addRecipe } from '../redux/action';
 
 
@@ -14,7 +14,7 @@ export default function Searching() {
     const [searchTimer, setSearchTimer] = useState(null);
     const [loading, setLoading] = useState(false)
     const info = 'fillIngredients=true&addRecipeInformation=true&instructionsRequired=true'
-    const API_KEY = '2299a9ad31ef43548dd863d4faf15262'
+    const API_KEY = 'your-api-key'
     
     const navigation = useNavigation();
 
@@ -32,9 +32,14 @@ export default function Searching() {
     };
 
     const dispatch = useDispatch();
+    
+    const todoList = useSelector(state => state.recipes);
 
-    const handleAddRecipe = (recipe) => {
-        dispatch(addRecipe(recipe))
+    const handleAddRecipe = (newRecipe) => {
+        const newRecipeIndex = todoList.findIndex((recipe) => recipe.recipe.id === newRecipe.id)
+        if (newRecipeIndex === -1) {
+            dispatch(addRecipe(newRecipe))
+        }
     }
 
     return (

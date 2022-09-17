@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Card, Title } from 'react-native-paper';
 import CardButton from "./ButtonItemCard";
 import FavouritesButton from "./ButtonFavourites";
@@ -13,7 +13,12 @@ const CreateCard = (props) => {
                 <Text style={styles.text}>Cooking Time: {props.cookingTime} min</Text>
                 <Text style={styles.text}>Serves: {props.servings}</Text>
             </Card.Content>
+            <View style={{flex:1, flexDirection:'row', alignItems:'flex-end',}}>
             <CardButton buttonText='SEE RECIPE' onPress={props.onPress1}/>
+            <CardButton buttonText='ADD TO LIST' onPress={props.onPress2}/>
+            </View>
+
+
         </Card>
     )
 }
