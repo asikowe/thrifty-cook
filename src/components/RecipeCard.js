@@ -22,8 +22,8 @@ export default function RecipeCard(props) {
                 <StarredButton onPress2={props.onPress2} isClicked={props.isClicked} /> 
             </View>
             <View style={Style.containerRecipeCardListButton}>
-                    <IngredientsButton onPress3={props.onPress3} isClicked2={props.isClicked2} />
-                </View>
+                <IngredientsButton onPress3={props.onPress3} isClicked2={props.isClicked2} />
+            </View>
         </Card>
     )
 }
