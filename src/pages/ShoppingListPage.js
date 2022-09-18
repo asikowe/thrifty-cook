@@ -3,10 +3,11 @@ import Checkbox from '../components/CheckBox';
 import AppButton from '../components/AppButton';
 import RoundButton from '../components/RoundButton';
 import Style from '../../assets/Style';
-import { Text, View, FlatList } from 'react-native';
-import { useSelector } from 'react-redux';
+import { Text, View, FlatList, StatusBar } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
+import { clearIngredients } from '../redux/action';
 
-export default function ShoppingList({route}) {
+export default function ShoppingList() {
 
     const myListEmpty = () => {
         return (
@@ -19,39 +20,47 @@ export default function ShoppingList({route}) {
     const getHeader = () => {
         return (
             <View>
+                <StatusBar style='dark' />
                 <Text style={Style.heading}>SHOPPING LIST</Text>
             </View>
         )
     }
 
-    const getFooter = () => {
+    const getFooter = (props) => {
         return (
             <View>
                 <Text style={Style.heading}>ADD MORE? <RoundButton buttonText='+' /></Text>
                 <Text style={Style.text}>OR click the button below to clear this list once you're done shopping!</Text>
-                <AppButton buttonText='Clear list' onPress={() => myListEmpty()} />
+                <AppButton buttonText='Clear list' onPress={() => handleClearIngredients(props)} />
             </View>
         )
     }
 
-    const todoList = useSelector(state => state.recipes);
+    const ingredients = useSelector(state => state.ingredients);
+
+    const dispatch = useDispatch();
+
+    const handleClearIngredients = (ingredient) => {
+        dispatch(clearIngredients(ingredient))
+    };
+
 
     return (
         <View style={Style.container}>
             <FlatList
-                data={todoList}
+                data={ingredients}
                 ListEmptyComponent={myListEmpty}
                 renderItem={({ item }) =>
                 <View style={Style.containerInstructions}>
-                    {item.recipe.extendedIngredients.map((v, i) => (
-                        <Text style={Style.textShoppingList}><Checkbox /> {v.nameClean}</Text>))}
+                    {item.extendedIngredients.map((v, i) => (
+                        <Text style={Style.textShoppingList} key={i}><Checkbox /> {v.measures.us.amount} {v.measures.us.unitLong} {v.nameClean}</Text>))}
                 </View>}
                 keyExtractor={item => item.id}
                 contentContainerStyle={{
                     flexGrow: 1,
                 }}
                 ListHeaderComponent={getHeader}
-                ListFooterComponent={getFooter}
+                ListFooterComponent={(item) => getFooter(item)}
                 showsVerticalScrollIndicator={false}
             />
         </View>

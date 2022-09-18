@@ -1,8 +1,10 @@
 import React from 'react';
 import NavigationBar from './src/components/NavigationBar';
 import { useFonts } from 'expo-font';
+import { Text } from 'react-native';
 import { Provider } from 'react-redux';
-import store from './src/redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './src/redux/store';
 
 export default function App() {
   
@@ -17,7 +19,9 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <NavigationBar />
+      <PersistGate loading={<Text>Loading...</Text>} persistor={persistor}>
+        <NavigationBar />
+      </PersistGate>
     </Provider>
   );
 }

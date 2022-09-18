@@ -1,6 +1,6 @@
 import Home from '../pages/HomePage';
 import RecipeScreenNavigator from './RecipeScreenNavigator';
-import StarredRecipes from '../pages/StarredRecipesPage';
+import RecipeScreenNavigator2 from './RecipeScreenNavigatorStarred';
 import ShoppingList from '../pages/ShoppingListPage';
 import Options from '../pages/OptionsPage';
 import { NavigationContainer } from '@react-navigation/native';
@@ -19,6 +19,7 @@ export default function NavigationBar() {
                     tabBarLabelStyle: { fontSize: 14, fontFamily: 'PoppinsRegular' },
                     tabBarActiveTintColor: '#fdf6da',
                     tabBarInactiveTintColor: '#3d3d3d',
+                    tabBarHideOnKeyboard: true,
                     tabBarStyle: {
                         borderTopColor: 'transparent',
                         backgroundColor: '#e58637',
@@ -46,7 +47,7 @@ export default function NavigationBar() {
                 <Tab.Screen name='Home' options={{ tabBarLabel: 'Home' }} component={Home} />
                 <Tab.Screen name='Search' options={{ tabBarLabel: 'Search' }} component={RecipeScreenNavigator} />
                 <Tab.Screen name='List' options={{ tabBarLabel: 'List' }} component={ShoppingList} />
-                <Tab.Screen name='Starred' options={{ tabBarLabel: 'Starred' }} component={StarredRecipes} />
+                <Tab.Screen name='Starred' options={{ tabBarLabel: 'Starred' }} component={RecipeScreenNavigator2} />
                 <Tab.Screen name='Options' options={{ tabBarLabel: 'Options' }} component={Options} />
             </Tab.Navigator>
         </NavigationContainer>
