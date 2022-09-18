@@ -108,7 +108,7 @@ export default function Searching() {
                 </View>
             }
             {!! response &&
-                <View>
+                <View style={Style.container}>
                         <ScrollView contentContainerStyle={Style.containerRecipeCards} showsHorizontalScrollIndicator={false}>
                         {response?.results.map((result) => (
                             <RecipeCard title={result.title} 
