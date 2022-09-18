@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import RecipeCard from '../components/RecipeCard';
 import Style from '../../assets/Style';
-import { addRecipe } from '../redux/action';
+import { addIngredients, addRecipe, removeIngredients, removeRecipe } from '../redux/action';
 import { SearchBar } from '@rneui/themed';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
-import { View, ScrollView, ActivityIndicator, SafeAreaView, StatusBar } from 'react-native';
+import { Text, View, ScrollView, ActivityIndicator, SafeAreaView, StatusBar } from 'react-native';
 
 
 export default function Searching() {
@@ -33,15 +33,41 @@ export default function Searching() {
     };
 
     const dispatch = useDispatch();
-    
-    const todoList = useSelector(state => state.recipes);
 
-    const handleAddRecipe = (newRecipe) => {
-        const newRecipeIndex = todoList.findIndex((recipe) => recipe.recipe.id === newRecipe.id)
-        if (newRecipeIndex === -1) {
-            dispatch(addRecipe(newRecipe))
+    const favourites = useSelector(state => state.favourites);
+
+    const ingredients = useSelector(state => state.ingredients);
+
+    const handleAddRecipe = (recipe) => {
+        dispatch(addRecipe(recipe))
+    };
+
+    const handleRemoveRecipe = (recipe) => {
+        dispatch(removeRecipe(recipe))
+    };
+
+    const handleAddIngredients = (ingredients) => {
+        dispatch(addIngredients(ingredients))
+
+    };
+
+    const handleRemoveIngredients = (ingredients) => {
+        dispatch(removeIngredients(ingredients))
+    };
+
+    const recipeExists = recipe => {
+        if (favourites?.filter(item => item.id === recipe.id).length > 0) {
+            return true;
         }
-    }
+        return false
+    };
+
+    const ingredientsExists = recipe => {
+        if (ingredients?.filter(item => item.id === recipe.id).length > 0) {
+            return true;
+        }
+        return false
+    };
 
     return (
 
@@ -76,6 +102,11 @@ export default function Searching() {
                 <View style={Style.myloader}>
                     <ActivityIndicator size='large' color='#FFB3BA' />
                 </View>}
+            {response.totalResults === 0 &&
+                <View style={Style.container}>
+                    <Text style={Style.heading}>No results found.</Text>
+                </View>
+            }
             {!! response &&
                 <View>
                         <ScrollView contentContainerStyle={Style.containerRecipeCards} showsHorizontalScrollIndicator={false}>
@@ -84,8 +115,11 @@ export default function Searching() {
                                 cookingTime={result.readyInMinutes} 
                                 servings={result.servings} 
                                 key={result.id}
+                                isClicked={recipeExists(result)}
+                                isClicked2={ingredientsExists(result)}
                                 onPress1={() => navigation.navigate("Recipe", { paramKey: result })} 
-                                onPress2={() => handleAddRecipe(result)}/>
+                                onPress2={() => {recipeExists(result) ? handleRemoveRecipe(result) : handleAddRecipe(result)}}
+                                onPress3={() => {ingredientsExists(result) ? handleRemoveIngredients(result) : handleAddIngredients(result)}}
                         ))}
                     </ScrollView>
                 </View>}
