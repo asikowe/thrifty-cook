@@ -47,8 +47,8 @@ export default StyleSheet.create({
     containerRecipeCardStarredButton: {
         position: 'absolute',
         zIndex: 4,
-        top: '5%',
-        left: '3%'
+        top: '3%',
+        left: '2%'
     },
 
     containerRecipeCardListButton: {
@@ -212,6 +212,7 @@ export default StyleSheet.create({
         fontFamily: 'PermamentMarkerRegular',
         fontSize: 18,
         lineHeight: 30,
+        paddingLeft: '6%',
         textAlign: 'center',
         color: '#3d3d3d',
     },
