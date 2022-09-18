@@ -5,7 +5,7 @@ export default function IngredientsButton(props) {
 
     return (
         <TouchableOpacity onPress={props.onPress3} activeOpacity={0.7}>
-            <Ionicons color={props.color} size={props.size} name={props.isClicked2 ? "cart" : "cart-outline" } />
+            <Ionicons color='#e58637' size={30} name={props.isClicked2 ? "cart" : "cart-outline" } />
         </TouchableOpacity >
     );
 }

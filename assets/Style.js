@@ -38,16 +38,24 @@ export default StyleSheet.create({
     },
 
     containerRecipeCardButton: {
-        flexDirection:'row',
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: '3%',
         marginBottom: '5%'
     },
 
-    containerRecipeBottomCardButtons: {
-        flexDirection: 'row-reverse', 
-        padding: 5
+    containerRecipeCardStarredButton: {
+        position: 'absolute',
+        zIndex: 4,
+        top: '5%',
+        left: '3%'
+    },
+
+    containerRecipeCardListButton: {
+        position: 'absolute',
+        zIndex: 3,
+        bottom: '5%',
+        right: '3%'
     },
 
     containerInstructions: {
