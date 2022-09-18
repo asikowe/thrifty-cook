@@ -19,8 +19,9 @@ export default function RecipeCard(props) {
                 <RecipeCardButton style={Style.recipeCardButton} buttonText='SEE RECIPE' onPress={props.onPress1}/>
             </View>
             <View style={Style.containerRecipeBottomCardButtons}>
-            <IngredientsButton onPress3={props.onPress3} isClicked2={props.isClicked2} color="#e58637" size={35} />
-            <StarredButton onPress2={props.onPress2} isClicked={props.isClicked} /> 
+                <IngredientsButton onPress3={props.onPress3} isClicked2={props.isClicked2} color="#e58637" size={35} />
+                <StarredButton onPress2={props.onPress2} isClicked={props.isClicked} /> 
+            </View>
         </Card>
     )
 }

@@ -4,10 +4,10 @@ import AppButton from '../components/AppButton';
 import RoundButton from '../components/RoundButton';
 import Style from '../../assets/Style';
 import { Text, View, FlatList, StatusBar } from 'react-native';
-import { useSelector, seDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { clearIngredients } from '../redux/action';
 
-export default function ShoppingList({route}) {
+export default function ShoppingList() {
 
     const myListEmpty = () => {
         return (
@@ -20,12 +20,13 @@ export default function ShoppingList({route}) {
     const getHeader = () => {
         return (
             <View>
+                <StatusBar style='dark' />
                 <Text style={Style.heading}>SHOPPING LIST</Text>
             </View>
         )
     }
 
-    const getFooter = () => {
+    const getFooter = (props) => {
         return (
             <View>
                 <Text style={Style.heading}>ADD MORE? <RoundButton buttonText='+' /></Text>

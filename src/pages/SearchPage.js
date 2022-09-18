@@ -21,7 +21,7 @@ export default function Searching() {
 
     async function fetchData(text) {
         const res = await fetch(
-            `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${text}&${info}&number=2`,
+            `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${text}&${info}&number=10`,
         );
         res
             .json()
@@ -120,6 +120,7 @@ export default function Searching() {
                                 onPress1={() => navigation.navigate("Recipe", { paramKey: result })} 
                                 onPress2={() => {recipeExists(result) ? handleRemoveRecipe(result) : handleAddRecipe(result)}}
                                 onPress3={() => {ingredientsExists(result) ? handleRemoveIngredients(result) : handleAddIngredients(result)}}
+                                />
                         ))}
                     </ScrollView>
                 </View>}
