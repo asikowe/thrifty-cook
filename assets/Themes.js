@@ -1,6 +1,6 @@
 import { DefaultTheme } from "react-native-paper";
 
-export const BlueGray = {
+export const ChalkboardTheme = {
     ...DefaultTheme,
     colors: {
         ...DefaultTheme.colors,
@@ -8,7 +8,7 @@ export const BlueGray = {
     }
 }
 
-export const LightGreen = {
+export const LightTheme = {
     ...DefaultTheme,
     colors: {
         ...DefaultTheme.colors,
