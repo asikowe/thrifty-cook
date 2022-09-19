@@ -6,8 +6,11 @@ import Style from '../../assets/Style';
 import { Text, View, FlatList, StatusBar } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearIngredients } from '../redux/action';
+import { useNavigation } from '@react-navigation/native';
 
 export default function ShoppingList() {
+
+    const navigation = useNavigation();
 
     const myListEmpty = () => {
         return (
@@ -29,7 +32,7 @@ export default function ShoppingList() {
     const getFooter = (props) => {
         return (
             <View>
-                <Text style={Style.heading}>ADD MORE? <RoundButton buttonText='+' /></Text>
+                <Text style={Style.heading}>ADD MORE? <RoundButton buttonText='+' onPress={() => navigation.navigate('Search')} /></Text>
                 <Text style={Style.text}>OR click the button below to clear this list once you're done shopping!</Text>
                 <AppButton buttonText='Clear list' onPress={() => handleClearIngredients(props)} />
             </View>
