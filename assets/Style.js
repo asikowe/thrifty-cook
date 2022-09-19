@@ -115,16 +115,17 @@ export default StyleSheet.create({
         backgroundColor: '#ffb3ba',
         borderRadius: 5,
         elevation: 3,
-        width: '35%',
-        marginRight: '5%',
-        marginLeft: '5%',
+        width: '40%',
+        marginRight: '3%',
+        marginLeft: '3%',
     },
 
     recipeCardButtonText: {
         fontFamily: 'PermamentMarkerRegular',
         fontSize: 14,
         textAlign: 'center',
-        color: 'black'
+        color: 'black',
+        margin: 4,
     },
 
 
