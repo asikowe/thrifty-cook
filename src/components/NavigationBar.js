@@ -2,7 +2,6 @@ import Home from '../pages/HomePage';
 import RecipeScreenNavigator from './RecipeScreenNavigator';
 import RecipeScreenNavigator2 from './RecipeScreenNavigatorStarred';
 import ShoppingList from '../pages/ShoppingListPage';
-import Options from '../pages/OptionsPage';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -38,8 +37,6 @@ export default function NavigationBar() {
                             iconName = focused ? 'cart' : 'cart-outline';
                         } else if (route.name === 'Starred') {
                             iconName = focused ? 'star' : 'star-outline';
-                        } else if (route.name === 'Options') {
-                            iconName = focused ? 'settings' : 'settings-outline';
                         }
                         return <Ionicons name={iconName} size={size} color={color} />;
                     },
@@ -48,7 +45,6 @@ export default function NavigationBar() {
                 <Tab.Screen name='Search' options={{ tabBarLabel: 'Search' }} component={RecipeScreenNavigator} />
                 <Tab.Screen name='List' options={{ tabBarLabel: 'List' }} component={ShoppingList} />
                 <Tab.Screen name='Starred' options={{ tabBarLabel: 'Starred' }} component={RecipeScreenNavigator2} />
-                <Tab.Screen name='Options' options={{ tabBarLabel: 'Options' }} component={Options} />
             </Tab.Navigator>
         </NavigationContainer>
     );

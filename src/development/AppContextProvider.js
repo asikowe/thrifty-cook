@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { LightGreen } from "../../assets/Themes";
-import { DarkTheme } from "@react-navigation/native";
+import React, { Component } from 'react';
+import { LightGreen } from './Themes';
+import { DarkTheme } from '@react-navigation/native';
 
 const Context = React.createContext();
 
