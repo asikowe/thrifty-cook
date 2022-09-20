@@ -10,26 +10,37 @@ import { Text, View, ScrollView, ActivityIndicator, SafeAreaView, StatusBar } fr
 
 export default function Searching() {
 
-    const [input, setInput] = useState("");
-    const [response, setResponse] = useState("");
+    const [input, setInput] = useState('');
+    const [response, setResponse] = useState('');
     const [searchTimer, setSearchTimer] = useState(null);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
+    const [apistatus, setApiStatus] = useState(false);
     const info = 'fillIngredients=true&addRecipeInformation=true&instructionsRequired=true'
     const API_KEY = '2299a9ad31ef43548dd863d4faf15262'
     
     const navigation = useNavigation();
 
     async function fetchData(text) {
+        try {
         const res = await fetch(
             `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${text}&${info}&number=10`,
         );
+
+        if (res.status === 200) {
         res
             .json()
             .then((res) => {
                 setResponse(res);
                 setLoading(false)
-            })
-            .catch((err) => console.log(err));
+        })}
+        else if (res.status !== 200) {
+            setLoading(false);
+            setApiStatus(true);
+        }
+        }
+            catch(err) {
+                console.log(err);
+            }
     };
 
     const dispatch = useDispatch();
@@ -104,8 +115,14 @@ export default function Searching() {
                 </View>}
             {response.totalResults === 0 &&
                 <View style={Style.container}>
-                    <Text style={Style.heading}>No results found.</Text>
+                    <Text style={Style.textInstructions}>No results found.</Text>
                 </View>
+            }
+            {apistatus &&
+                <View style={Style.container}>
+                    <Text style={Style.textInstructions}>Unable to fetch the results. Please try again later.</Text>
+                </View>
+
             }
             {!! response &&
                 <View style={Style.container}>
