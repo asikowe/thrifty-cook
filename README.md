@@ -1,7 +1,9 @@
 # Thrifty Cook - Code First Girls +masters Course Project
 
 Software Name: Thrifty Cook
+
 Version: 0.8.0
+
 Date: 20 SEP 2022
 
 ----------------------------------------------------
@@ -47,7 +49,7 @@ Thrifty Cook is a grocery list generator which will assist you in meal planning 
 
 1. Have an IDE & Node.js installed on your computer and Expo on your mobile phone (See point #6 "Additional Resources" for installation links & guides)
 2. Download this repository as a .zip file with Thrifty Cook application, save it on your computer:
-![See how to download this app's repository as a .zip file]('.assets/images/download-zip.png')
+![See how to download this app's repository as a .zip file](./assets/images/download-zip.png)
 3. Unpack the .zip file on your computer (right click + unpack to location / unpack here)
 4. Open your IDE
 5. Open the unpacked folder with Thrifty Cook application in the IDE by either dragging & dropping the unzipped folder over to the IDE or opening the unzipped folder in IDE with "File > Open folder" option and navigating to the folder's location
