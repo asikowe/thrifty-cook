@@ -52,7 +52,7 @@ This application wass designed for personal use, under the assumption that just 
 
 ### Application's Wireframe:
 
-![Wireframe](./assets/images/wireframe.png)
+![Wireframe](./assets/images/wireframe.PNG)
 
 ### Design & Color Code Moodboard:
 
@@ -82,7 +82,7 @@ Figma for moodboard & design, Photoshop for icons & colour coding our app
 
 ![Colour Palette](./assets/images/colours.png)
 
-Colours usedin the process of designing the app are stored in Colors.txt file with description, hex & RBG values - even the colours which are not presently being used are saved there for legacy purposes, also they might be used for developing themes in the future.
+Colours used in the process of designing the app are stored in Colors.txt file with description, hex & RBG values - even the colours which are not presently being used are saved there for legacy purposes, also they might be used for developing themes in the future.
 
 ### Planning & Project Management tools used:
 
