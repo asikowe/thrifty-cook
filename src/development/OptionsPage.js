@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { View } from 'react-native'
-import { AppConsumer } from '../components/AppContextProvider';
-import { ChalkboardTheme, LightTheme } from '../../assets/Themes';
-import { Button } from "react-native-paper";
+import { AppConsumer } from './AppContextProvider';
+import { ChalkboardTheme, LightTheme } from './Themes';
+import { Button } from 'react-native-paper';
 import Style from '../../assets/Style';
 
 class Options extends Component {

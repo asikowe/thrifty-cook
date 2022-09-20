@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { LightGreen } from "../../assets/Themes";
+import { LightGreen } from "./Themes";
 import { DarkTheme } from "@react-navigation/native";
 
 const Context = React.createContext();
