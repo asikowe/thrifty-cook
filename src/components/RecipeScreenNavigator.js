@@ -17,6 +17,11 @@ export default function RecipeScreenNavigator() {
             <Stack.Screen
                 name='Recipe'
                 component={Recipe}
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#fdf6da',
+                    }
+                }}
             />
         </Stack.Navigator>
     );
