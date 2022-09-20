@@ -194,9 +194,7 @@ export default StyleSheet.create({
         fontSize: 35,
         lineHeight: 200,
         textAlign: 'center',
-        color: '#ffffba',
-        textShadowColor: '#ffffba',
-        textShadowRadius: 3
+        color: '#ffffba'
     },
 
     subtitle: {
