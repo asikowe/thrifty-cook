@@ -10,6 +10,7 @@ export default function Home() {
                 <Image style={Style.logo} source={require('../../assets/carrot-border.png')}/>
                 Thrifty Cook
             </Text>
+            <Text style={Style.subtitle}>Search and select recipes in order to build your shopping list!</Text>
         </View>
     );
 }
