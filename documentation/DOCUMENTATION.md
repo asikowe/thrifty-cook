@@ -52,13 +52,13 @@ This application wass designed for personal use, under the assumption that just 
 
 ### Application's Wireframe:
 
-![Wireframe](./assets/images/wireframe.PNG)
+![Wireframe](../assets/images/wireframe.PNG)
 
 ### Design & Color Code Moodboard:
 
 We decided that since the application is created mostly with UK users in mind, we will go with a design idea that seemed most appealing to UK users - a dark anthracite chalkboard with powdery pastel colour accents with possible reference to pantone kitchen and iconic SMEG appliance design. We opted for this design as it evokes the "Chalkboard shopping/to-do list in the kitchen" theme, which is likely to be recognisable to many users. We also wanted to include the cute carrot drawn by Susanna which we all really liked:
 
-![Moodboard](./assets/images/moodboard.png)
+![Moodboard](../assets/images/moodboard.png)
 
 
 ### Design Heuristics:           
@@ -68,7 +68,7 @@ We decided that since the application is created mostly with UK users in mind, w
 To improve the mapping and recognition of our app we opted for a Z-Pattern layout, with a navigation bar at the bottom of the screen and the searchbar or App name easy to find at the top.  
 We also made sure to use familiar icons where possible, such as a "plus" icon to ass items to the basket, and a "star" for adding to favourites. These icons will be easily recognised by most users, allowing them to understand the navigation and functions available to them on each page.
 
-![ZLayout](./assets/images/zlayout.png)            
+![ZLayout](../assets/images/zlayout.png)            
                  
 *Consistency:*           
 
@@ -87,7 +87,7 @@ Additionally we have an "Add more" button on the shopping list page so users can
 When no results are found or a user changes their mind and wishes to search for a new recipe, the search bar is easily available at the top of the screen on the results page. Users may also add items into their favourites or shopping list without being automatically redirected, making the app easier and quicker to use for those who are building up a large shopping list of recipe collection.
 Our User Flow diagram shows our intended user flow experience, as well as how users whose search returns no results can easily search again.      
          
-![UserFlow](./assets/images/userflow.png)    
+![UserFlow](../assets/images/userflow.png)    
 
 *Help, Error Handling and Prevention:*                
 
@@ -119,7 +119,7 @@ We've also used Visual Studio Code, Node.js package manager, Expo and Git for ve
 
 Figma for moodboard & design, Photoshop for icons & colour coding our app
 
-![Colour Palette](./assets/images/colours.png)
+![Colour Palette](../assets/images/colours.png)
 
 Colours used in the process of designing the app are stored in Colors.txt file with description, hex & RBG values - even the colours which are not presently being used are saved there for legacy purposes, also they might be used for developing themes in the future.
 
