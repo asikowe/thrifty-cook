@@ -50,22 +50,21 @@ export default function ShoppingList() {
 
     return (
         <View style={Style.container}>
+            <View style={Style.containerShoppingListPositioning}>
             <FlatList
                 data={ingredients}
                 ListEmptyComponent={myListEmpty}
                 renderItem={({ item }) =>
-                <View style={Style.containerInstructions}>
-                    {item.extendedIngredients.map((v, i) => (
-                        <Text style={Style.textShoppingList} key={i}><Checkbox /> {v.measures.us.amount} {v.measures.us.unitLong} {v.nameClean}</Text>))}
-                </View>}
+                    <View style={Style.containerShoppingListContent}>
+                        {item.extendedIngredients.map((v, i) => (
+                            <Text style={Style.textShoppingList} key={i}><Checkbox /> {v.measures.us.amount} {v.measures.us.unitLong} {v.nameClean}</Text>))}
+                    </View>}
                 keyExtractor={item => item.id}
-                contentContainerStyle={{
-                    flexGrow: 1,
-                }}
                 ListHeaderComponent={getHeader}
                 ListFooterComponent={(item) => getFooter(item)}
                 showsVerticalScrollIndicator={false}
             />
+            </ View>
         </View>
     );
 }

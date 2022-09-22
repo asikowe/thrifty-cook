@@ -20,6 +20,18 @@ export default StyleSheet.create({
         marginVertical: 0
     },
 
+    containerShoppingListPositioning: {
+        backgroundColor: '#3d3d3d',
+        paddingHorizontal: '5%',
+        paddingVertical: '0%',
+    },
+
+    containerShoppingListContent: {
+        backgroundColor: '#3d3d3d',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start'
+    },
+
     containerRecipeCards: {
         alignItems: 'center',
         justifyContent: 'center',
@@ -56,14 +68,6 @@ export default StyleSheet.create({
         zIndex: 3,
         bottom: '5%',
         right: '3%'
-    },
-
-    containerInstructions: {
-        backgroundColor: '#3d3d3d',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
-        paddingHorizontal: '3%',
-        paddingVertical: '5%',
     },
 
 
