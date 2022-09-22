@@ -56,10 +56,49 @@ This application wass designed for personal use, under the assumption that just 
 
 ### Design & Color Code Moodboard:
 
-We decided that since the application is created mostly with UK users in mind, we will go with a design idea that seemed most appealing to UK users - a dark anthracite chalkboard with powdery pastel colour accents with possible reference to pantone kitchen and iconic SMEG appliance design was one of our ideas, but we also wanted to include the cute carrot drawn by Susanna which we all really liked:
+We decided that since the application is created mostly with UK users in mind, we will go with a design idea that seemed most appealing to UK users - a dark anthracite chalkboard with powdery pastel colour accents with possible reference to pantone kitchen and iconic SMEG appliance design. We opted for this design as it evokes the "Chalkboard shopping/to-do list in the kitchen" theme, which is likely to be recognisable to many users. We also wanted to include the cute carrot drawn by Susanna which we all really liked:
 
 ![Moodboard](./assets/images/moodboard.png)
 
+
+### Design Heuristics:           
+            
+*Mapping and Recognition:*
+                
+To improve the mapping and recognition of our app we opted for a Z-Pattern layout, with a navigation bar at the bottom of the screen and the searchbar or App name easy to find at the top.  
+We also made sure to use familiar icons where possible, such as a "plus" icon to ass items to the basket, and a "star" for adding to favourites. These icons will be easily recognised by most users, allowing them to understand the navigation and functions available to them on each page.
+
+![ZLayout](./assets/images/zlayout.png)            
+                 
+*Consistency:*           
+
+In order to keep the consistency of the app we made sure to use the same design for buttons and icons on each page, to place the search bar and navigation bar in the same place and order n each page, to use different fonts for title, subtitle and body texts, and to ensure consistency of when and how each was used.           
+Another decision we made for consistency was to have the modules showing recipe titles and details be exactly the same on both the search results page and the Favourites page where users may view saved recipes.           
+Throughout the project the team kept a high level of communication and joint decision making over design and layout decisions, ensuring that the work we produced was consistant throughout the entire app.            
+           
+*Minimalism:*       
+        
+We have tried to keep the app as minimalist as possible, only including simple directional statements or words where needed, and showing only a small preview of each recipe on the results and favourites page to avoid overwhelming users with too much information. This was also important in allowing key information to stand out and to be in keeping with our minimalist Chalkboard theme, which meant we did not want to have too many colours or elements cluttering the page.         
+             
+*Flexibility & Freedom:*           
+                
+In order to improve flexibility and freedom of the app we made sure to include the navbar on each page so users could move between screens quickly, we also allowed flexibility in that you can open and view a recipe in detail without automatically adding it's ingredients to your shopping list. This allows for people to use the app just as a tool to look up recipes, even when they don't want to build a shopping list.     
+Additionally we have an "Add more" button on the shopping list page so users can input additional items or recipes by tapping, and they can also clear an existing shopping list or tick off items the already have.               
+When no results are found or a user changes their mind and wishes to search for a new recipe, the search bar is easily available at the top of the screen on the results page. Users may also add items into their favourites or shopping list without being automatically redirected, making the app easier and quicker to use for those who are building up a large shopping list of recipe collection.
+Our User Flow diagram shows our intended user flow experience, as well as how users whose search returns no results can easily search again.      
+         
+![UserFlow](./assets/images/userflow.png)    
+
+*Help, Error Handling and Prevention:*                
+
+As shown above in our User Flow, when a user's search returns no results they will be shown an error message explaining that no results have been found and prompting them to search again, which they can do using the search bar.           
+We also have functions allowing users to tick off items they do not need on their shopping list, to add and remove favourites, and to clear their list altogether if they wish to start again or have made an error.        
+Throughout the app we have sought to consistently and clearly signpost the user so they can understand their options and can avoid errors. We have done this as stated above with a combination of recognisable icons, minimalist designs, and written prompts - for example, the annotations used under icons in our navbar or indicating the search bar.         
+                   
+*Visibility:*       
+
+In order to increase the visibility we have annotated the search bar and navbar, have opted for a high contrast (pastels on black) colour scheme to ensure objects stand out on the page, and have used loading circles to indicate to users when the app is loading in results. This will help avoid confusion about the status of the app, and indicates to users that it is loading results as opposed to having crashed.                            
+                        
 -----------------------------------------------------------------------
 
 ## IMPLEMENTATION AND EXECUTION 
